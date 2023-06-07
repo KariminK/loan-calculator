@@ -1,0 +1,316 @@
+@use "./variables.scss" as v;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: v.$background-color;
+}
+header {
+  text-align: center;
+  background-color: v.$accent-2;
+  padding: 2em 10em;
+  font-size: 18px;
+  color: v.$font-color;
+  h1 {
+    font-size: 48px;
+  }
+}
+main {
+  max-width: 1250px;
+  margin-inline: auto;
+  color: v.$font-color;
+  text-align: center;
+  h2 {
+    color: v.$accent-1;
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin: 25px 0;
+  }
+}
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.car {
+  width: 400px;
+  background-color: v.$accent-2;
+  background-clip: border-box;
+  box-shadow: 0px 0px 10px 1px rgb(44, 44, 44);
+  cursor: pointer;
+  border: 5px dashed v.$accent-1;
+  padding: 20px;
+  text-align: left;
+  .carImg {
+    width: 100%;
+  }
+  .carDetails {
+    list-style-type: none;
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  i {
+    color: v.$accent-1;
+  }
+  transition: scale 200ms;
+  &:hover {
+    scale: 1.05;
+  }
+}
+form{
+  display: none;
+  width: 80vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  box-shadow: 0px 0px 100vw 100vh rgba(46, 45, 45, 0.633);
+  background-color: v.$background-color;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.form {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  ul {
+    list-style-type: none;
+  }
+}
+.summary{
+  position: relative;
+  height: 100%;
+  .priceComponent{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10vw;
+    font-size: 20px;
+    text-align: left;
+    &:first-child{
+      margin-top: 0px;
+    }
+    &:last-child{
+      margin-bottom: 0px;
+    }
+  }
+  .priceNumber{
+    color: v.$accent-2;
+    text-align: right;
+  }
+  h3{
+    font-size: 30px;
+  }
+  .price span{
+    color: v.$accent-2;
+  }
+  .finishBtn{
+    border: 5px solid v.$accent-2;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 25px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: v.$background-color;
+    font-weight: bold;
+    color: v.$accent-2;
+    cursor: pointer;
+    transition: background-color 200ms, box-shadow 200ms;
+    &:hover{
+      background-color: v.$accent-1;
+      box-shadow: 0px 0px 10px 2px v.$accent-2;
+    }
+  }
+}
+.formHeading {
+  background-color: v.$accent-1;
+  border-bottom: 5px solid v.$accent-2;
+  h2 {
+    margin: 0;
+    padding: 20px 0px;
+    color: v.$font-color;
+    font-size: 36px;
+  }
+}
+.advancedInfoItems {
+  padding: 0 100px;
+}
+.advancedInfoItem {
+  display: flex;
+  justify-content: space-between;
+}
+.active {
+  display: block;
+}
+.hide{
+  display: none;
+}
+.formItems {
+  margin-inline: 5px;
+  p {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .formItem {
+    margin: 25px 0;
+  }
+}
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background: v.$font-color;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 10px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: v.$accent-2;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  background-color: v.$background-color;
+  border: 2px solid v.$accent-1;
+  width: 80px;
+  font-size: 22px;
+  color: v.$font-color;
+  text-align: center;
+  outline: none;
+  padding: 2px 5px;
+}
+input[type="date"] {
+  background-color: v.$background-color;
+  border: 2px solid v.$accent-1;
+  color: v.$font-color;
+  padding: 5px;
+}
+.formBtn {
+  background-color: v.$background-color;
+  border: none;
+  border-top: 5px solid v.$accent-2;
+  background-color: v.$accent-1;
+  font-size: 30px;
+  font-weight: bold;
+  color: v.$font-color;
+  cursor: pointer;
+  transition: color 200ms, background-color 200ms;
+}
+#cancelBtn {
+  background-color: v.$background-color;
+  color: v.$accent-1;
+  border-top: 5px solid v.$accent-1;
+}
+#submitBtn:hover {
+  color: v.$background-color;
+  background-color: v.$accent-2;
+}
+#cancelBtn:hover {
+  background-color: v.$accent-1;
+  color: v.$background-color;
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    grid-template-rows: 90px 1fr 90px;
+  }
+  form{
+    height: 60vh;
+    width: 90vw;
+  }
+  .formHeading h2,
+  .advancedInfoHeading h2 {
+    font-size: 30px;
+  }
+  .advancedInfoItems {
+    padding: 0 20px;
+  }
+  .formItems p {
+    font-size: 20px;
+  }
+  .car{
+    width: calc(50% - 10px);
+  }
+}
+@media screen and (max-width: 768px) {
+  header{
+    padding: 30px;
+  }
+  form{
+    height: 80vh;
+    width: 100vw;
+  }
+  .form {
+    grid-template-rows: 120px 1fr 100px;
+
+  }
+  .formItem {
+    margin: 0px 0;
+  }
+  .dateLabel {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  header{
+    padding: 20px;
+  }
+  .car{
+    width: 100%;
+  }
+  form{
+    height: 100vh;
+    width: 100vw;
+    width: 100vw;
+  }
+  .form{
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 100px 1fr 90px 90px;
+    overflow: auto;
+    
+  }
+  .summary{
+    .finishBtn{
+      border-radius: 0px;
+      &:hover{
+        box-shadow: none;
+      }
+      width: 100%;
+    }
+    h2{
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
+  .formItems{
+    grid-row: 2/3;
+  }
+  .advancedInfoItems{
+    margin-bottom: 20px;
+  }
+}

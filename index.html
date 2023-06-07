@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Rental calculator</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Loan Calculator</h1>
+      <p>
+        Use our loan calculator to calculate payments over the life of your
+        loan. Enter your information to see how much your monthly payments could
+        be. You can adjust length of loan, down payment and interest rate to see
+        how those changes raise or lower your payments.
+      </p>
+    </header>
+    <main>
+      <h2>Select Car:</h2>
+      <div class="cars">
+        <div class="car">
+          <img
+            src="https://iprenders.blob.core.windows.net/basenx3s23100413/0F0FwD0n9tr.2WP-1sjRXbYGpD-gietynZw2_EN5rJU3.p-8EljtGqK.CMxy32p-XjFw2rMBpKsQ8y.h6adV5fZH0S-CD-19201080dayvext_front1000080.png?v=637993616120000000"
+            alt="#"
+            class="carImg"
+          />
+          <h3>Skoda Octavia</h3>
+          <ul class="carDetails">
+            <li>
+              <div>
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span>Price:</span>
+              </div>
+              <span class="detail">2050&dollar;</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-bolt"></i>
+                <span>Power:</span>
+              </div>
+              <span class="detail">250HP</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                <span>Year of production:</span>
+              </div>
+              <span class="detail">2000</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-user-clock"></i>
+                <span>Mileage:</span>
+              </div>
+              <span class="detail">205 000 km</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>Fuel:</span>
+              </div>
+              <span class="detail">diesel</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-fire"></i>
+                <span>Fuel usage (per 100km):</span>
+              </div>
+              <span class="detail">2.4</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-money-bill"></i>
+                <span>Tier:</span>
+              </div>
+              <span class="detail">Basic</span>
+            </li>
+            <li>
+              <div>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Available:</span>
+              </div>
+              <span class="detail">Yes, 25 cars</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form action="#" class="">
+        <div class="form">
+          <div class="formHeading">
+            <h2>Let's calculate your road!</h2>
+          </div>
+          <div class="advancedInfoHeading">
+            <h2>Advanced info about car:</h2>
+          </div>
+          <ul class="formItems">
+            <li class="formItem">
+              <p>Estimated kilometers: <span id="estimatedKmTxt">10</span></p>
+              <input
+                type="range"
+                name="estKilometers"
+                id="estimatedKm"
+                class="slider"
+                min="10"
+                value="10"
+                max="2000"
+              />
+            </li>
+            <li class="formItem">
+              <p>Year of obtaining the driving license</p>
+              <input
+                type="number"
+                name="DrivingLicenseYear"
+                id="drivingLicenseYear"
+              />
+            </li>
+            <li class="formItem">
+              <p>The term of the car rental</p>
+              <label class="dateLabel" for="startDate">
+                From:
+                <input type="date" name="startDate" id="startDate" />
+              </label>
+              <label class="dateLabel" for="endDate">
+                To:
+                <input type="date" name="endDate" id="endDate" />
+              </label>
+            </li>
+          </ul>
+          <ul class="advancedInfoItems">
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-bolt"></i>
+                <span>Power:</span>
+              </div>
+              <span class="detail">250HP</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-calendar"></i>
+                <span>Year of production:</span>
+              </div>
+              <span class="detail">2000</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-user-clock"></i>
+                <span>Mileage:</span>
+              </div>
+              <span class="detail">205 000 km</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-gas-pump"></i>
+                <span>Fuel:</span>
+              </div>
+              <span class="detail">diesel</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-fire"></i>
+                <span>Fuel usage (per 100km):</span>
+              </div>
+              <span class="detail">2.4</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-money-bill"></i>
+                <span>Tier:</span>
+              </div>
+              <span class="detail">Basic</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Available:</span>
+              </div>
+              <span class="detail">Yes, 25 cars</span>
+            </li>
+            <li class="advancedInfoItem">
+              <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Location:</span>
+              </div>
+              <span class="detail">Rzeszow</span>
+            </li>
+          </ul>
+          <button class="formBtn" id="submitBtn">Calculate!</button>
+          <button class="formBtn" id="cancelBtn">Cancel</button>
+        </div>
+        <div class="summary hide">
+          <h2>Summary</h2>
+          <ul>
+            <li class="priceComponent">
+              <span class="priceDescription">Basic price per day:</span>
+              <span class="priceNumber">200&dollar;</span>
+            </li>
+            <li class="priceComponent">
+              <span class="priceDescription">Day amount:</span>
+              <span class="priceNumber">20</span>
+            </li>
+            <li class="priceComponent">
+              <span class="priceDescription">Tier multipler:</span>
+              <span class="priceNumber">1.5x</span>
+            </li>
+            <li class="priceComponent">
+              <span class="priceDescription">Fuel cost:</span>
+              <span class="priceNumber">436.4&dollar;</span>
+            </li>
+            <li class="priceComponent">
+              <span class="priceDescription">Additional parts of price:</span>
+              <span class="priceNumber"
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+                similique?</span
+              >
+            </li>
+          </ul>
+          <h2>Total:</h2>
+          <div class="price">
+            <h3 id="netto"><span>3256.5&dollar;</span> netto</h3>
+            <h3 id="brutto"><span>4355.5&dollar;</span> brutto</h3>
+          </div>
+          <button class="finishBtn">Calculate price for another car</button>
+        </div>
+      </form>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/2e000cecf5.js"
+      crossorigin="anonymous"
+    ></script>
+    <template class="carTemp">
+      <div class="car">
+        <img
+          src="https://iprenders.blob.core.windows.net/basenx3s23100413/0F0FwD0n9tr.2WP-1sjRXbYGpD-gietynZw2_EN5rJU3.p-8EljtGqK.CMxy32p-XjFw2rMBpKsQ8y.h6adV5fZH0S-CD-19201080dayvext_front1000080.png?v=637993616120000000"
+          alt="#"
+          class="carImg"
+        />
+        <h3>Skoda Octavia</h3>
+        <ul class="carDetails">
+          <li>
+            <div>
+              <i class="fa-solid fa-dollar-sign"></i>
+              <span>Price:</span>
+            </div>
+            <span class="detail" id="price"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-bolt"></i>
+              <span>Power:</span>
+            </div>
+            <span class="detail" id="power"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-calendar"></i>
+              <span>Year of production:</span>
+            </div>
+            <span class="detail" id="YoP"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-user-clock"></i>
+              <span>Mileage:</span>
+            </div>
+            <span class="detail" id="mileage"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-gas-pump"></i>
+              <span>Fuel:</span>
+            </div>
+            <span class="detail" id="fuel"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-fire"></i>
+              <span>Fuel usage (per 100km):</span>
+            </div>
+            <span class="detail" id="fuelUsage"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-money-bill"></i>
+              <span>Tier:</span>
+            </div>
+            <span class="detail" id="tier"></span>
+          </li>
+          <li>
+            <div>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Available:</span>
+            </div>
+            <span class="detail" id="available"></span>
+          </li>
+        </ul>
+      </div>
+    </template>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

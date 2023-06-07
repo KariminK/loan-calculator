@@ -1,7 +1,5 @@
 const cars = document.querySelector(".cars");
-const form = document.querySelector("form");
-const formDiv = document.querySelector(".form");
-const summary = document.querySelector(".summary");
+import { form } from "./form.js";
 export class Car {
   constructor(
     price,
@@ -11,7 +9,8 @@ export class Car {
     fuel,
     fuelUsage,
     tier,
-    available
+    available,
+    location
   ) {
     this.price = price;
     this.power = power;
@@ -21,17 +20,17 @@ export class Car {
     this.fuelUsage = fuelUsage;
     this.tier = tier;
     this.available = available;
+    this.location = location;
     this.template = document.querySelector(".carTemp").content.cloneNode(true);
     this.element = this.template.querySelector(".car");
-    this.element.addEventListener("click", this.activateForm);
+    this.details = this.template.querySelectorAll(".detail");
     cars.appendChild(this.element);
   }
-  insertInfo() {
-    const details = document.querySelectorAll(".detail");
+  insertInfo(details) {
     details.forEach((detail) => {
       switch (detail.id) {
         case "price":
-          detail.innerText = this.price;
+          detail.innerText = this.price + "$";
           break;
         case "power":
           detail.innerText = this.power;
@@ -54,15 +53,15 @@ export class Car {
         case "available":
           detail.innerText = this.available;
           break;
+        case "location":
+          detail.innerText = this.location;
+          break;
       }
     });
   }
   activateForm() {
-    if (!form.classList.contains("active")) {
-      form.classList.add("active");
-      formDiv.classList.remove("hide");
-      summary.classList.add("hide");
-    }
+    form.init();
+    this.insertInfo(form.formInfo);
   }
   calculatePrice(estKM, yearOfObtainingDL, termOfCarRent, fuelCost) {
     const price = {

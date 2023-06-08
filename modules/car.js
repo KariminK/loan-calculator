@@ -66,7 +66,9 @@ export class Car {
   calculatePrice(estKM, yearOfObtainingDL, termOfCarRent, fuelCost) {
     const price = {
       netto: 0,
-      brutto: this.netto * 1.23,
+      brutto: this.netto * form.multipler,
     };
+    price.netto = 3;
+    return price;
   }
 }

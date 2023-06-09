@@ -86,6 +86,10 @@ form{
     list-style-type: none;
   }
 }
+#errorTxt{
+  color: rgb(255, 15, 15);
+  display: none;
+}
 .summary{
   position: relative;
   height: 100%;
@@ -150,7 +154,7 @@ form{
   justify-content: space-between;
 }
 .active {
-  display: block;
+  display: block !important;
 }
 .hide{
   display: none;

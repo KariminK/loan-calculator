@@ -92,6 +92,11 @@ form {
   list-style-type: none;
 }
 
+#errorTxt {
+  color: rgb(255, 15, 15);
+  display: none;
+}
+
 .summary {
   position: relative;
   height: 100%;
@@ -160,7 +165,7 @@ form {
 }
 
 .active {
-  display: block;
+  display: block !important;
 }
 
 .hide {

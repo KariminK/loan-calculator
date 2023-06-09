@@ -58,17 +58,41 @@ export class Car {
           break;
       }
     });
+    for (let detail in form.carDetails) {
+      switch (detail) {
+        case "price":
+          form.carDetails[detail] = this.price + "$";
+          break;
+        case "power":
+          form.carDetails[detail] = this.power;
+          break;
+        case "YoP":
+          form.carDetails[detail] = this.yearOfProduction;
+          break;
+        case "mileage":
+          form.carDetails[detail] = this.mileage;
+          break;
+        case "fuel":
+          form.carDetails[detail] = this.fuel;
+          break;
+        case "fuelUsage":
+          form.carDetails[detail] = this.fuelUsage;
+          break;
+        case "tier":
+          form.carDetails[detail] = this.tier;
+          break;
+        case "available":
+          form.carDetails[detail] = this.available;
+          break;
+        case "location":
+          form.carDetails[detail] = this.location;
+          break;
+      }
+    }
   }
   activateForm() {
     form.init();
     this.insertInfo(form.formInfo);
   }
-  calculatePrice(estKM, yearOfObtainingDL, termOfCarRent, fuelCost) {
-    const price = {
-      netto: 0,
-      brutto: this.netto * form.multipler,
-    };
-    price.netto = 3;
-    return price;
-  }
+  
 }

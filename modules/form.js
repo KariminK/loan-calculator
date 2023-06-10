@@ -6,6 +6,11 @@ export const form = {
   kmLabel: document.querySelector("#estimatedKmTxt"),
   multipler: 1,
   basicPrice: 300,
+  fuelPrice: {
+    diesel: 2.5,
+    petrol: 2.9,
+    lpg: 1.5,
+  },
   formInputs: {
     estKM: document.querySelector("#estimatedKm"),
     yearOfObtainingDL: document.querySelector("#drivingLicenseYear"),
@@ -29,6 +34,7 @@ export const form = {
   },
   formInfo: document.querySelectorAll(".advancedInfoItem .detail"),
   init() {
+    this.kmLabel.innerText = this.formInputs.estKM.value;
     this.parentElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
@@ -50,6 +56,11 @@ export const form = {
   submit() {
     form.errorTxt.classList.remove("active");
     const data = form.validateData();
+    if(data != undefined){
+      const price = form.calculatePrice(data.estKM, data.yearOfObtainingDL);
+      console.log(price);
+    }
+    console.log(data);
   },
   validateData() {
     const startDateArr = form.formInputs.carRentStartDate.value.split("-");
@@ -80,14 +91,15 @@ export const form = {
       endDateArr.length < 3
     ) {
       form.error("Invalid Date");
-    } else if (form.formInputs.yearOfObtainingDL.value < 1) {
+    } else if (form.formInputs.yearOfObtainingDL.value < 1920 || form.formInputs.yearOfObtainingDL.value > 2023) {
       form.error("Invalid year of obtaining driving license");
-    }else{
+    } else {
       return {
         startDate,
         endDate,
         yearOfObtainingDL: form.formInputs.yearOfObtainingDL.value,
-      }
+        estKM: form.formInputs.estKM.value,
+      };
     }
   },
   error(text) {
@@ -99,21 +111,37 @@ export const form = {
       }
     }
   },
-  calculatePrice(startDate, endDate, estKM, yearOfObtainingDL) {
+  calculatePrice(estKM, yearOfObtainingDL) {
     const time = new Date();
-    const fuelCost = estKM / this.fuelUsage * this.fuelCost;
+    let fuelLiterPrice = 0;
+    switch (form.carDetails.fuel) {
+      case "diesel":
+        fuelLiterPrice = form.fuelPrice.diesel;
+        break;
+      case "petrol":
+        fuelLiterPrice = form.fuelPrice.petrol;
+        break;
+      case "lpg":
+        fuelLiterPrice = form.fuelPrice.lpg;
+        break;
+    }
+    const fuelCost = estKM * (form.carDetails.fuelUsage / 100) * fuelLiterPrice;
+    console.log(fuelCost);
     const price = {
-      netto: form.basicPrice*form.multipler+fuelCost,
-      brutto: this.netto * 1.23,
+      netto: form.basicPrice * form.multipler + fuelCost,
+      brutto: this.netto * 1.23, 
     };
-    if(time.getFullYear()-yearOfObtainingDL < 3 && form.carDetails.tier.toLowerCase() == "premium"){
+    if (
+      time.getFullYear() - yearOfObtainingDL < 3 &&
+      form.carDetails.tier.toLowerCase() == "premium"
+    ) {
       form.error("Sorry, you can't rent this car now");
+    } else if (time.getFullYear() - yearOfObtainingDL < 5) {
+      price.netto *= 1.2;
     }
-    else if (time.getFullYear()-yearOfObtainingDL < 5) {
-      price.netto *= 1.20;
+    if (form.carDetails.available < 3) {
+      price.netto *= 1.15;
     }
-    if(form.carDetails.available < 3){
-      price.netto *=  1.15;
-    }
+    return price;
   },
 };

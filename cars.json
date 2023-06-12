@@ -1,0 +1,52 @@
+{
+    "cars": [
+        {
+            "name": "Skoda Octavia",
+            "price": 3200,
+            "power": 120,
+            "yearOfProduction": 2010,
+            "mileage": 120000,
+            "fuel": "diesel",
+            "fuelUsage": 7.5,
+            "tier": "standard",
+            "available": "10",
+            "location": "Rzeszow"
+        },
+        {
+            "name": "Mercedes-Benz E-Class",
+            "price": 32000,
+            "power": 240,
+            "yearOfProduction": 2015,
+            "mileage": 13400,
+            "fuel": "petrol",
+            "fuelUsage": 12,
+            "tier": "premium",
+            "available": "3",
+            "location": "Rzeszow"
+        },
+        {
+            "name": "Fiat 500L",
+            "price": 1500,
+            "power": 100,
+            "yearOfProduction": 2012,
+            "mileage": 300000,
+            "fuel": "lpg",
+            "fuelUsage": 5.5,
+            "tier": "basic",
+            "available": "43",
+            "location": "Krakow"
+        },
+        {
+            "name": "Volkswagen Passat",
+            "price": 4500,
+            "power": 150,
+            "yearOfProduction": 2006,
+            "mileage": 100000,
+            "fuel": "diesel",
+            "fuelUsage": 7.5,
+            "tier": "standard",
+            "available": "17",
+            "location": "Tarnow"
+        }
+    ]
+}

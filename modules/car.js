@@ -10,7 +10,9 @@ export class Car {
     fuelUsage,
     tier,
     available,
-    location
+    location,
+    name,
+    src,
   ) {
     this.price = price;
     this.power = power;
@@ -21,9 +23,13 @@ export class Car {
     this.tier = tier;
     this.available = available;
     this.location = location;
+    this.name = name;
+    this.src = src;
     this.template = document.querySelector(".carTemp").content.cloneNode(true);
     this.element = this.template.querySelector(".car");
     this.details = this.template.querySelectorAll(".detail");
+    this.img = this.template.querySelector(".carImg");
+    this.nameElement = this.template.querySelector(".carName");
     cars.appendChild(this.element);
   }
   insertInfo(details) {

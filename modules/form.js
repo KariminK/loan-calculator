@@ -2,6 +2,7 @@ export const form = {
   parentElement: document.querySelector("#mainForm"),
   formElement: document.querySelector(".form"),
   summaryElement: document.querySelector(".summary"),
+  finishBtn: document.querySelector(".finishBtn"),
   errorTxt: document.querySelector("#errorTxt"),
   kmLabel: document.querySelector("#estimatedKmTxt"),
   multipler: 1,
@@ -67,7 +68,7 @@ export const form = {
         data.dayDiff
       );
       form.showSummary(price.netto, price.brutto);
-      form.insertSummaryInfo(data.dayDiff, data.fuelCost, "xyz");
+      form.insertSummaryInfo(data.dayDiff, price.fuelCost, price.additionalParts);
     }
   },
   validateData() {
@@ -144,6 +145,8 @@ export const form = {
     const price = {
       netto: form.basicPrice * dayDiff * form.multipler + fuelCost,
       brutto: 0,
+      fuelCost,
+      additionalParts: [],
     };
     if (
       time.getFullYear() - yearOfObtainingDL < 3 &&
@@ -152,9 +155,11 @@ export const form = {
       form.error("Sorry, you can't rent this car now");
     } else if (time.getFullYear() - yearOfObtainingDL < 5) {
       price.netto *= 1.2;
+      price.additionalParts.push("You have driving license for less than 5 years (+20%)");
     }
     if (form.carDetails.available < 3) {
       price.netto *= 1.15;
+      price.additionalParts.push("Less than 3 cars available (+15%)");
     }
     price.netto = Math.floor(price.netto);
     price.brutto = Math.floor(price.netto * 1.23);
@@ -165,6 +170,11 @@ export const form = {
     this.summaryElement.classList.remove("hide");
     this.nettoPrice.innerText = netto + "$";
     this.bruttoPrice.innerText = brutto + "$";
+    this.finishBtn.addEventListener("click", ()=>{
+      form.parentElement.classList.remove("active");
+      form.formElement.classList.remove("hide");
+      form.summaryElement.classList.add("hide");
+    })
   },
   insertSummaryInfo(dayamount, fuelcost, addParts) {
     this.priceComponents.forEach((component) => {
@@ -179,7 +189,7 @@ export const form = {
           component.innerText = fuelcost + "$";
           break;
         case "additionalPartsOfPrice":
-          component.innerText = addParts;
+          component.innerText = addParts.toString();
       }
     });
   },

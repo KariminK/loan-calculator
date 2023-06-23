@@ -35,7 +35,8 @@ const main = async () => {
       car.tier,
       car.available,
       car.location,
-      car.name
+      car.name,
+      car.src,
     );
     carEl.insertInfo(carEl.details);
     carEl.element.addEventListener("click", () => {

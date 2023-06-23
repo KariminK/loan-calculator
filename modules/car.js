@@ -29,7 +29,9 @@ export class Car {
     this.element = this.template.querySelector(".car");
     this.details = this.template.querySelectorAll(".detail");
     this.img = this.template.querySelector(".carImg");
-    this.nameElement = this.template.querySelector(".carName");
+    this.img.src = this.src;
+    this.nameElement = this.template.querySelector("#carName");
+    this.nameElement.innerText = this.name;
     cars.appendChild(this.element);
   }
   insertInfo(details) {

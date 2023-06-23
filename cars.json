@@ -10,7 +10,8 @@
             "fuelUsage": 7.5,
             "tier": "standard",
             "available": "10",
-            "location": "Rzeszow"
+            "location": "Rzeszow",
+            "src": "https://iprenders.blob.core.windows.net/basenx3s23100413/0F0FwD0n9tr.2WP-1sjRXbYGpD-gietynZw2_EN5rJU3.p-8EljtGqK.CMxy32p-XjFw2rMBpKsQ8y.h6adV5fZH0S-CD-19201080dayvext_front1000080.png?v=637993616120000000"
         },
         {
             "name": "Mercedes-Benz E-Class",
@@ -22,7 +23,8 @@
             "fuelUsage": 12,
             "tier": "premium",
             "available": "3",
-            "location": "Rzeszow"
+            "location": "Rzeszow",
+            "src": "https://leasingzwysokimwykupem.pl/pub/offer/t960x540/kingsmanfinance-mercedes-benz-klasa-e-300e-amg-line-2020.png"
         },
         {
             "name": "Fiat 500L",
@@ -34,7 +36,8 @@
             "fuelUsage": 5.5,
             "tier": "basic",
             "available": "43",
-            "location": "Krakow"
+            "location": "Krakow",
+            "src": "https://www.fiat.pl/content/dam/fiat/cross/models/500l-my21/opening/desktop/figurini/cross/500L-cross-model-page-bicolor-gelato-white-glossy-black-car-desktop-680x430.png"
         },
         {
             "name": "Volkswagen Passat",
@@ -46,7 +49,8 @@
             "fuelUsage": 7.5,
             "tier": "standard",
             "available": "17",
-            "location": "Tarnow"
+            "location": "Tarnow",
+            "src": "https://storage.carsmile.pl/uploads/2023/04/volkswagen_passat_kombi_thumb.png"
         }
     ]
 }
